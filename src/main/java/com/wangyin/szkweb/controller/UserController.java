@@ -1,6 +1,6 @@
-package com.wangyin.umbrella_account_manager.controller;
+package com.wangyin.szkweb.controller;
 
-import com.wangyin.umbrella_account_manager.Domain.User;
+import com.wangyin.szkweb.Domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +20,14 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView createUser(User user) {
+        ModelAndView mava = new ModelAndView();
+        System.out.print(user.getUserName());
+        mava.setViewName("user/createSuccess");
+        mava.addObject("user", user);
+        return mava;
+    }
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView createUser2(User user) {
         ModelAndView mava = new ModelAndView();
         System.out.print(user.getUserName());
         mava.setViewName("user/createSuccess");

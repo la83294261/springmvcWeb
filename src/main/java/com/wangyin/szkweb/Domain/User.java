@@ -1,4 +1,4 @@
-package com.wangyin.umbrella_account_manager.Domain;
+package com.wangyin.szkweb.Domain;
 
 /**
  * Created by shizhongkai on 2016/11/8.

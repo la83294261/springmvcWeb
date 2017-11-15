@@ -9,5 +9,7 @@
 </head>
 <body>
 szktest:${user.userName} aa!
+
+output :${message}
 </body>
 </html>

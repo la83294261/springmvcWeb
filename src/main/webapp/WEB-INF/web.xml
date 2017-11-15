@@ -2,9 +2,9 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <display-name>umbrellaweb</display-name>
+    <display-name>szkweb</display-name>
     <servlet>
-        <servlet-name>umbrella</servlet-name>
+        <servlet-name>szkweb</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -14,7 +14,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>umbrella</servlet-name>
+        <servlet-name>szkweb</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
