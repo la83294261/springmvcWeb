@@ -10,7 +10,7 @@
     <script src="/ext/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#kkkk").click(function(){
+            $(".button").click(function(){
                 $("p").hide();
             });
         });
@@ -36,6 +36,12 @@
         </tr>
     </table>
 </form>
+<div class="title">充值信息查询</div>
+#*隐藏域*#
+<div style="display: none">
+    <input type="text" name="pageNumber" id="pageNumber" value="$!result.pageNumber"> #*当前页码，当点击下一页的时候，需要+1/点击查询按钮时需要置为1*#
+    <input type="text" name="totalPage" id="totalPage" value="$!result.totalPage"> #*总页数*#
+</div>
 
 <h2>This is a heading</h2>
 <p>This is a paragraph.</p>

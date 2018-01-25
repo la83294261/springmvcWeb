@@ -22,7 +22,7 @@ public class UserController {
     public ModelAndView createUser(User user) {
         ModelAndView mava = new ModelAndView();
         System.out.print(user.getUserName());
-        mava.setViewName("user/createSuccess");
+        mava.setViewName("user/createSuccess2");
         mava.addObject("user", user);
         return mava;
     }
@@ -30,7 +30,7 @@ public class UserController {
     public ModelAndView createUser2(User user) {
         ModelAndView mava = new ModelAndView();
         System.out.print(user.getUserName());
-        mava.setViewName("user/createSuccess");
+        mava.setViewName("user/createSuccess2");
         mava.addObject("user", user);
         return mava;
     }

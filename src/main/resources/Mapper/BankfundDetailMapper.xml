@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-generator-config_1_0.dtd"" >
+<mapper namespace="com.wangyin.szkweb.Mapper.BankfundDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.wangyin.szkweb.Domain.BankfundDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="financetype" property="financetype" jdbcType="INTEGER" />
+    <result column="tobankid" property="tobankid" jdbcType="VARCHAR" />
+    <result column="transdate" property="transdate" jdbcType="VARCHAR" />
+    <result column="transtype" property="transtype" jdbcType="VARCHAR" />
+    <result column="accountno" property="accountno" jdbcType="VARCHAR" />
+    <result column="amount" property="amount" jdbcType="BIGINT" />
+    <result column="involaccount" property="involaccount" jdbcType="VARCHAR" />
+    <result column="involname" property="involname" jdbcType="VARCHAR" />
+    <result column="biztype" property="biztype" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="merchantno" property="merchantno" jdbcType="VARCHAR" />
+    <result column="equaldate" property="equaldate" jdbcType="VARCHAR" />
+    <result column="reconstatus" property="reconstatus" jdbcType="TINYINT" />
+    <result column="created_date" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="modified_date" property="modifiedDate" jdbcType="TIMESTAMP" />
+    <result column="sideremark" property="sideremark" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="uses" property="uses" jdbcType="VARCHAR" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, financetype, tobankid, transdate, transtype, accountno, amount, involaccount, 
+    involname, biztype, remark, merchantno, equaldate, reconstatus, created_date, modified_date, 
+    sideremark, summary, info, uses, operator
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wangyin.szkweb.Domain.BankfundDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bankfund_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from bankfund_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from bankfund_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wangyin.szkweb.Domain.BankfundDetailExample" >
+    delete from bankfund_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wangyin.szkweb.Domain.BankfundDetail" >
+    insert into bankfund_detail (id, financetype, tobankid, 
+      transdate, transtype, accountno, 
+      amount, involaccount, involname, 
+      biztype, remark, merchantno, 
+      equaldate, reconstatus, created_date, 
+      modified_date, sideremark, summary, 
+      info, uses, operator
+      )
+    values (#{id,jdbcType=BIGINT}, #{financetype,jdbcType=INTEGER}, #{tobankid,jdbcType=VARCHAR}, 
+      #{transdate,jdbcType=VARCHAR}, #{transtype,jdbcType=VARCHAR}, #{accountno,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=BIGINT}, #{involaccount,jdbcType=VARCHAR}, #{involname,jdbcType=VARCHAR}, 
+      #{biztype,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{merchantno,jdbcType=VARCHAR}, 
+      #{equaldate,jdbcType=VARCHAR}, #{reconstatus,jdbcType=TINYINT}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{modifiedDate,jdbcType=TIMESTAMP}, #{sideremark,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{info,jdbcType=VARCHAR}, #{uses,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wangyin.szkweb.Domain.BankfundDetail" >
+    insert into bankfund_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="financetype != null" >
+        financetype,
+      </if>
+      <if test="tobankid != null" >
+        tobankid,
+      </if>
+      <if test="transdate != null" >
+        transdate,
+      </if>
+      <if test="transtype != null" >
+        transtype,
+      </if>
+      <if test="accountno != null" >
+        accountno,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="involaccount != null" >
+        involaccount,
+      </if>
+      <if test="involname != null" >
+        involname,
+      </if>
+      <if test="biztype != null" >
+        biztype,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="merchantno != null" >
+        merchantno,
+      </if>
+      <if test="equaldate != null" >
+        equaldate,
+      </if>
+      <if test="reconstatus != null" >
+        reconstatus,
+      </if>
+      <if test="createdDate != null" >
+        created_date,
+      </if>
+      <if test="modifiedDate != null" >
+        modified_date,
+      </if>
+      <if test="sideremark != null" >
+        sideremark,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="info != null" >
+        info,
+      </if>
+      <if test="uses != null" >
+        uses,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="financetype != null" >
+        #{financetype,jdbcType=INTEGER},
+      </if>
+      <if test="tobankid != null" >
+        #{tobankid,jdbcType=VARCHAR},
+      </if>
+      <if test="transdate != null" >
+        #{transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="transtype != null" >
+        #{transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null" >
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="involaccount != null" >
+        #{involaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="involname != null" >
+        #{involname,jdbcType=VARCHAR},
+      </if>
+      <if test="biztype != null" >
+        #{biztype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantno != null" >
+        #{merchantno,jdbcType=VARCHAR},
+      </if>
+      <if test="equaldate != null" >
+        #{equaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="reconstatus != null" >
+        #{reconstatus,jdbcType=TINYINT},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedDate != null" >
+        #{modifiedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sideremark != null" >
+        #{sideremark,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="uses != null" >
+        #{uses,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wangyin.szkweb.Domain.BankfundDetailExample" resultType="java.lang.Integer" >
+    select count(*) from bankfund_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bankfund_detail
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.financetype != null" >
+        financetype = #{record.financetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.tobankid != null" >
+        tobankid = #{record.tobankid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transdate != null" >
+        transdate = #{record.transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transtype != null" >
+        transtype = #{record.transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountno != null" >
+        accountno = #{record.accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.amount != null" >
+        amount = #{record.amount,jdbcType=BIGINT},
+      </if>
+      <if test="record.involaccount != null" >
+        involaccount = #{record.involaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.involname != null" >
+        involname = #{record.involname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.biztype != null" >
+        biztype = #{record.biztype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantno != null" >
+        merchantno = #{record.merchantno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equaldate != null" >
+        equaldate = #{record.equaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reconstatus != null" >
+        reconstatus = #{record.reconstatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.createdDate != null" >
+        created_date = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedDate != null" >
+        modified_date = #{record.modifiedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sideremark != null" >
+        sideremark = #{record.sideremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summary != null" >
+        summary = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.info != null" >
+        info = #{record.info,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uses != null" >
+        uses = #{record.uses,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operator != null" >
+        operator = #{record.operator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bankfund_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      financetype = #{record.financetype,jdbcType=INTEGER},
+      tobankid = #{record.tobankid,jdbcType=VARCHAR},
+      transdate = #{record.transdate,jdbcType=VARCHAR},
+      transtype = #{record.transtype,jdbcType=VARCHAR},
+      accountno = #{record.accountno,jdbcType=VARCHAR},
+      amount = #{record.amount,jdbcType=BIGINT},
+      involaccount = #{record.involaccount,jdbcType=VARCHAR},
+      involname = #{record.involname,jdbcType=VARCHAR},
+      biztype = #{record.biztype,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      merchantno = #{record.merchantno,jdbcType=VARCHAR},
+      equaldate = #{record.equaldate,jdbcType=VARCHAR},
+      reconstatus = #{record.reconstatus,jdbcType=TINYINT},
+      created_date = #{record.createdDate,jdbcType=TIMESTAMP},
+      modified_date = #{record.modifiedDate,jdbcType=TIMESTAMP},
+      sideremark = #{record.sideremark,jdbcType=VARCHAR},
+      summary = #{record.summary,jdbcType=VARCHAR},
+      info = #{record.info,jdbcType=VARCHAR},
+      uses = #{record.uses,jdbcType=VARCHAR},
+      operator = #{record.operator,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wangyin.szkweb.Domain.BankfundDetail" >
+    update bankfund_detail
+    <set >
+      <if test="financetype != null" >
+        financetype = #{financetype,jdbcType=INTEGER},
+      </if>
+      <if test="tobankid != null" >
+        tobankid = #{tobankid,jdbcType=VARCHAR},
+      </if>
+      <if test="transdate != null" >
+        transdate = #{transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="transtype != null" >
+        transtype = #{transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null" >
+        accountno = #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="involaccount != null" >
+        involaccount = #{involaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="involname != null" >
+        involname = #{involname,jdbcType=VARCHAR},
+      </if>
+      <if test="biztype != null" >
+        biztype = #{biztype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantno != null" >
+        merchantno = #{merchantno,jdbcType=VARCHAR},
+      </if>
+      <if test="equaldate != null" >
+        equaldate = #{equaldate,jdbcType=VARCHAR},
+      </if>
+      <if test="reconstatus != null" >
+        reconstatus = #{reconstatus,jdbcType=TINYINT},
+      </if>
+      <if test="createdDate != null" >
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedDate != null" >
+        modified_date = #{modifiedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sideremark != null" >
+        sideremark = #{sideremark,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="uses != null" >
+        uses = #{uses,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wangyin.szkweb.Domain.BankfundDetail" >
+    update bankfund_detail
+    set financetype = #{financetype,jdbcType=INTEGER},
+      tobankid = #{tobankid,jdbcType=VARCHAR},
+      transdate = #{transdate,jdbcType=VARCHAR},
+      transtype = #{transtype,jdbcType=VARCHAR},
+      accountno = #{accountno,jdbcType=VARCHAR},
+      amount = #{amount,jdbcType=BIGINT},
+      involaccount = #{involaccount,jdbcType=VARCHAR},
+      involname = #{involname,jdbcType=VARCHAR},
+      biztype = #{biztype,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      merchantno = #{merchantno,jdbcType=VARCHAR},
+      equaldate = #{equaldate,jdbcType=VARCHAR},
+      reconstatus = #{reconstatus,jdbcType=TINYINT},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      modified_date = #{modifiedDate,jdbcType=TIMESTAMP},
+      sideremark = #{sideremark,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      info = #{info,jdbcType=VARCHAR},
+      uses = #{uses,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
